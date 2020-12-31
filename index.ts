@@ -43,4 +43,4 @@ bot.on("ready", function() {
     setInterval(setStatus, 3000)
 })
 
-bot.login("mfa.HiVQRgyarptCyj_OALbSXmjJWu1bWgykzaqj_DlPJu26rofm2dkGQysMvJT6yc4Ip9iff1vKwMjnNg0Ttne3")
+bot.login(process.env.TOKEN)
