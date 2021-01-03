@@ -18,7 +18,7 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = ["VRChat"];
+        const status = ["Cyberpunk 2077"];
         
         const types: ActivityType[] = [
             "STREAMING",
