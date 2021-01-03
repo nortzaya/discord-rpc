@@ -18,13 +18,7 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = [
-            `Merry Christmas!`,
-			`Мать Узнает Даст По Ебалу`,
-			`Денис Троицкий`,
-			`Партнёр 3 Серверов`,
-			`Выходные Летят Как Шлюхи С Крыши`,
-        ];
+        const status = [];
         
         const types: ActivityType[] = [
             "STREAMING",
