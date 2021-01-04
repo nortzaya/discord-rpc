@@ -3,9 +3,6 @@ import { Client } from "discord.js"
 const bot = new Client();
 
 type ActivityType = 'PLAYING'
-    | 'STREAMING'
-    | 'LISTENING'
-    | 'WATCHING';
 
 bot.on("ready", function() {
     console.log(`${bot.user.username} is Login`);
