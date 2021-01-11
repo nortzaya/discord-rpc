@@ -18,10 +18,10 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = ["Cyberpunk 2077"];
+        const status = ["Google Chrome"];
         
         const types: ActivityType[] = [
-            "STREAMING",
+            "PLAYING",
         ];
         
         statusIndex = statusIndex == (status.length - 1) ? 0 : statusIndex + 1;
