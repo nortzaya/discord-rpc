@@ -22,7 +22,7 @@ bot.on("ready", function() {
 		        "(×_×)"];
         
         const types: ActivityType[] = [
-            "PLAYING",
+            "STREAMING",
         ];
         
         statusIndex = statusIndex == (status.length - 1) ? 0 : statusIndex + 1;
