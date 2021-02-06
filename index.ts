@@ -3,9 +3,7 @@ import { Client } from "discord.js"
 const bot = new Client();
 
 type ActivityType = 'PLAYING'
-    | 'STREAMING'
-    | 'LISTENING'
-    | 'WATCHING';
+    | 'STREAMING';
 
 bot.on("ready", function() {
     console.log(`${bot.user.username} is Login`);
@@ -18,7 +16,10 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = ["Google Chrome"];
+        const status = ["да-да, пашёл я нахуй"
+			"УХОЖУ ИЗ 𝗗𝗶𝘀𝗰𝗼𝗿𝗱-𝗮 ПОТОМУ ЧТО НАДОЕЛ ✔"
+		        "╮(︶︿︶)╭"
+		        "(×_×)"];
         
         const types: ActivityType[] = [
             "PLAYING",
