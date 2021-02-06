@@ -16,12 +16,7 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = ["да-да, пашёл я нахуй",
-			"УХОЖУ ИЗ 𝗗𝗶𝘀𝗰𝗼𝗿𝗱-𝗮 ПОТОМУ ЧТО НАДОЕЛ ✓",
-		        "╮(︶︿︶)╭",
-		        "(×_×)",
-		        "ХОЧУ СДОХНУТЬ",
-			"идите нахуй от меня, я сдох"];
+        const status = ["дайте спокойно сдохнуть"];
         
         const types: ActivityType[] = [
             "STREAMING",
