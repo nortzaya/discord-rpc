@@ -16,7 +16,8 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = ["дайте спокойно сдохнуть"];
+        const status = ["дайте спокойно сдохнуть
+			"пока"];
         
         const types: ActivityType[] = [
             "STREAMING",
