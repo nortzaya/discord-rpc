@@ -16,7 +16,7 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-        const status = ["эх, все меня игнорят,
+        const status = ["эх, все меня игнорят",
 			"ну и похуй"];
         
         const types: ActivityType[] = [
