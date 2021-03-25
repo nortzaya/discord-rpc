@@ -2,7 +2,7 @@ import { Client } from "discord.js"
 
 const bot = new Client();
 
-type ActivityType = 'PLAYING'
+type ActivityType = ''
     | '';
 
 bot.on("ready", function() {
