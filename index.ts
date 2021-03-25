@@ -3,7 +3,7 @@ import { Client } from "discord.js"
 const bot = new Client();
 
 type ActivityType = 'PLAYING'
-    | 'STREAMING';
+    | '';
 
 bot.on("ready", function() {
     console.log(`${bot.user.username} is Login`);
@@ -16,10 +16,10 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-	        const status = ["twitch"];
+	        const status = [""];
         
         const types: ActivityType[] = [
-            "STREAMING",
+            "",
         ];
         
         statusIndex = statusIndex == (status.length - 1) ? 0 : statusIndex + 1;
