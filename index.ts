@@ -10,7 +10,7 @@ bot.on("ready", function() {
 
     const setActivity = (status: string, type: any) => bot.user?.setActivity(status, {
         type: type,
-        url: 'https://www.twitch.tv/i_zaya_i'
+        url: ''
     });
     let statusIndex = 0;
     let typeIndex = 0;
