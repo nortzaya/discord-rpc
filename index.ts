@@ -19,7 +19,7 @@ bot.on("ready", function() {
 	        const status = ["twitch"];
         
         const types: ActivityType[] = [
-            "",
+            "STREAMING",
         ];
         
         statusIndex = statusIndex == (status.length - 1) ? 0 : statusIndex + 1;
