@@ -3,20 +3,20 @@ import { Client } from "discord.js"
 const bot = new Client();
 
 type ActivityType = ''
-    | '';
+    | 'STREAMING';
 
 bot.on("ready", function() {
     console.log(`${bot.user.username} is Login`);
 
     const setActivity = (status: string, type: any) => bot.user?.setActivity(status, {
         type: type,
-        url: ''
+        url: 'https://www.twitch.tv/i_zaya_i'
     });
     let statusIndex = 0;
     let typeIndex = 0;
 
     const setStatus = () => {
-	        const status = [""];
+	        const status = ["STREAMING"];
         
         const types: ActivityType[] = [
             "",
