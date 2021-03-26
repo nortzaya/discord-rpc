@@ -1,1 +1,1 @@
-# discord-rpс
+# discord-rpc
