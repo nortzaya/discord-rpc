@@ -2,7 +2,7 @@ import { Client } from "discord.js"
 
 const bot = new Client();
 
-type ActivityType = ''
+type ActivityType = 'PLAYING'
     | 'STREAMING';
 
 bot.on("ready", function() {
@@ -16,7 +16,7 @@ bot.on("ready", function() {
     let typeIndex = 0;
 
     const setStatus = () => {
-	        const status = ["STREAMING"];
+	        const status = ["twitch"];
         
         const types: ActivityType[] = [
             "",
