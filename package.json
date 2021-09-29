@@ -1,17 +1,15 @@
 {
-  "name": "selfbot",
+  "name": "un_selfbot",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:dev": "ts-node-dev --respawn index.ts",
-    "start:js": "nodemon index.js"
+    "start:dev": "ts-node-dev --respawn index.ts"
   },
   "dependencies": {
     "discord.js-selfbot": "^12.0.2",
-    "nodemon": "^2.0.12",
+    "rich-commands": "^2.4.1",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.4.2",
-    "@types/node": "^16.7.6"
+    "typescript": "^4.4.3"
   }
 }
