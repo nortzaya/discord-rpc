@@ -1,72 +1,48 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const discord_js_selfbot_1 = require("discord.js-selfbot");
-const ArgumentParser_1 = require("./ArgumentParser.js");
-const client = new discord_js_selfbot_1.Client({
+const discord_js_selfbot_1 = __importDefault(require("discord.js-selfbot"));
+const rich_commands_1 = require("rich-commands");
+const PREFIX = "un!";
+let client = new discord_js_selfbot_1.default.Client({
     ws: {
-        intents: ['GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILDS', 'DIRECT_MESSAGES', 'GUILD_PRESENCES']
-    }
+        intents: [
+            "GUILDS",
+            "DIRECT_MESSAGES",
+            "GUILD_MESSAGES",
+            "GUILD_EMOJIS",
+            "GUILD_MEMBERS",
+        ]
+    },
+    disableMentions: "everyone"
 });
-const PREFIX = "+";
+let interval = 0;
+let iteration = 0;
 client.on("ready", function () {
-    console.log(`[SelfBot]: "${client.user?.tag}" login`);
-    client.user?.setPresence({
-        status: "dnd",
-        activity: {
-            name: "Tom Clancy's Rainbow Six Siege",
-            type: "STREAMING",
-            url: "https://twitch.tv/lisenok_257"
-        }
-    });
+    console.log(`[SelfBot]: ${client.user?.username} Login`);
+});
+let commands = new Map()
+    .set("setAnimateStatus", function (message, parse) {
+    let delay = parseInt(parse.flags.delay);
+    let type = parse.flags.type;
+    let args = parse.args;
+    clearInterval(interval);
+    interval = setInterval(function () {
+        iteration = ++iteration % args.length;
+        client.user?.setActivity({ name: args[iteration], type });
+    }, delay);
 });
 client.on("message", function (message) {
-    if (client.user?.id != message.author?.id)
+    if (message.author?.id != client.user?.id)
         return;
-    if (!message.content?.startsWith(PREFIX))
+    if (!message.content.startsWith(PREFIX))
         return;
-    let parse = new ArgumentParser_1.ArgumentParser(message.content?.slice(PREFIX.length));
-    let command = parse.part();
-    let channel = client.channels.cache.find(e => e.id == "889442382662213633");
-    if (command == "setStatus") {
-        let [status, name, type, url] = parse.parts();
-        try {
-            client.user?.setPresence({
-                status: status,
-                activity: {
-                    name: name,
-                    type: type,
-                    url: url ?? "https://twitch.tv/lisenok_257"
-                }
-            });
-        }
-        catch (error) {
-            channel.send(`\`\`\`\n${error}\`\`\``);
-        }
-    }
-    else if (command == "help") {
-        let embed = new discord_js_selfbot_1.MessageEmbed()
-            .addField("status:", [
-            "```\ninvisible - Невидимый",
-            "online - В сети",
-            "idle - Неактивен",
-            "dnd - Не беспокоить```"
-        ], true)
-            .addField("type:", [
-            "```\nPLAYING - Играет в ...",
-            "STREAMING - Стримит ...",
-            "LISTENING - Слушает ...",
-            "WATCHING - Смотрит ...```"
-        ], true)
-            .setDescription([
-            `\`\`\`\nИспользование '${PREFIX}setStatus <status> <name> <type> [url]'`,
-            `Пример #1: \n'${PREFIX}setStatus idle YouTube WATCHING' (Смотрит YouTube)`,
-            `Пример #2: \n'${PREFIX}setStatus idle Minecraft PLAYING' (Играет в Minecraft)`,
-            `Пример #3: \n'${PREFIX}setStatus idle \"Lofi hip hop\" LISTENING' (Слушает Lofi hip hop)`,
-            `Пример #4: \n'${PREFIX}setStatus idle Minecraft STREAMING' (Стримит Minecraft)`,
-            `Пример #5: \n'${PREFIX}setStatus idle Minecraft STREAMING https://twitch.tv/lisenok_257' (Стримит Minecraft)\`\`\``,
-        ])
-            .setColor(0x2A70F1);
-        channel.send(embed);
+    let { name, args, flags } = (0, rich_commands_1.parseCommand)(message.content.slice(PREFIX.length));
+    if (commands.has(name)) {
+        let command = commands.get(name);
+        command?.(message, { name, args, flags });
     }
 });
 client.login(process.env.TOKEN);
