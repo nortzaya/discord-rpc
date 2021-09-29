@@ -21,7 +21,7 @@ let client = new discord_js_selfbot_1.default.Client({
 let interval = 0;
 let iteration = 0;
 client.on("ready", function () {
-    console.log(`[SelfBot]: ${client.user?.username} Login`);
+    console.log(`[SelfBot]: ${client.user?.username} Online`);
 });
 let commands = new Map()
     .set("setAnimateStatus", function (message, parse) {
