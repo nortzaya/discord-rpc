@@ -22,7 +22,7 @@ let interval = 0;
 let iteration = 0;
 client.on("ready", function () {
     console.log(`[SelfBot]: ${client.user?.username} Online`);
-    client.user?.setActivity({ name: "Dota 2", type: "STREAMING" });
+    client.user?.setActivity({ name: "Dota 2", type: "STREAMING", url: "https://twitch.tv/lisenok_257" });
 });
 let commands = new Map()
     .set("setAnimateStatus", function (message, parse) {
