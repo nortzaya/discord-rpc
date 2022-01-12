@@ -22,7 +22,7 @@ let interval = 0;
 let iteration = 0;
 client.on("ready", function () {
     console.log(`[SelfBot]: ${client.user?.username} Online`);
-    client.user?.setActivity({ name: "Horizon Zero Dawn™", type: "PLAYING", url: "https://twitch.tv/lisenok_257" });
+    client.user?.setActivity({ name: "Horizon Zero Dawn™", type: "PLAYING", });
 });
 let commands = new Map()
     .set("setAnimateStatus", function (message, parse) {
